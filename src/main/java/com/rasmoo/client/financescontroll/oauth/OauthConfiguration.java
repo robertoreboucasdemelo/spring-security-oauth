@@ -59,7 +59,16 @@ public class OauthConfiguration {
 			.authorizedGrantTypes("password")
 			.scopes("read", "write")
 			.accessTokenValiditySeconds(3601)
+			.resourceIds(RESOURCE_ID)
+			.and()
+			.withClient("cliente-canva")
+			.secret(passwordEncoder.encode("rasmoo"))
+			.authorizedGrantTypes("authorization_code")
+			.redirectUris("https://www.canva.com/")
+			.scopes("read", "write")
+			.accessTokenValiditySeconds(3601)
 			.resourceIds(RESOURCE_ID);
+			
 		}
 	}
 }
