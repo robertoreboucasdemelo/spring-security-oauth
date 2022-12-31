@@ -77,6 +77,13 @@ public class OauthConfiguration {
 			.redirectUris("https://www.canva.com/")
 			.scopes("read", "write")
 			.accessTokenValiditySeconds(3601)
+			.resourceIds(RESOURCE_ID)
+			.and()
+			.withClient("cliente-web")
+			.secret(passwordEncoder.encode("rasmoo"))
+			.authorizedGrantTypes("client_credentials")
+			.scopes("read", "write")
+			.accessTokenValiditySeconds(7201)
 			.resourceIds(RESOURCE_ID);
 			
 		}
