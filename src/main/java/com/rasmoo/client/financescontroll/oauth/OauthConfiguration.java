@@ -32,7 +32,9 @@ public class OauthConfiguration {
 				.authenticated()
 				.and()
 				.requestMatchers()
-				.antMatchers("/v2/categoria");
+				.antMatchers("/v2/categoria")
+				.and()
+				.cors();
 		}
 	}
 	
@@ -64,6 +66,14 @@ public class OauthConfiguration {
 			.withClient("cliente-canva")
 			.secret(passwordEncoder.encode("rasmoo"))
 			.authorizedGrantTypes("authorization_code")
+			.redirectUris("https://www.canva.com/")
+			.scopes("read", "write")
+			.accessTokenValiditySeconds(3601)
+			.resourceIds(RESOURCE_ID)
+			.and()
+			.withClient("cliente-canva")
+			.secret(passwordEncoder.encode("rasmoo"))
+			.authorizedGrantTypes("implicit")
 			.redirectUris("https://www.canva.com/")
 			.scopes("read", "write")
 			.accessTokenValiditySeconds(3601)
